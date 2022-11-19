@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estil.css">
+    <link rel="stylesheet" href="login.css">
+    <title>TCCFLIX</title>
+    <link rel="shortcut icon" href="https://img.icons8.com/doodle/48/000000/popcorn.png">
+
+<style>
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #fff;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button{
+    background: none;
+    border: none;
+    margin-left: 15px;
+}
+
+.burguer{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.div{
+    width: 35px;
+    height: 5px;
+    background-color: #222;
+    border-radius: 5px;
+}
+#outro{
+    background-color: rgb(255, 118, 21);
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+    font-family: sans-serif;
+    padding: 10px;
+    transition: .5s;
+    font-weight: 500;
+}
+
+a:hover{
+    background: rgb(255, 118, 21);
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: underline;
+}
+
+#logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-left: 25px;
+    transition: .5s;
+    font-family: cursive;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 70px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+#logo {
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+#menu {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    list-style: none;
+    
+}
+
+#menu a {
+    display: block;
+    padding: 1.5rem;
+}
+
+nav {
+    display: flex;
+    padding: 20px;
+}
+
+#botao {
+    display: none;
+}
+
+@media (max-width:700px) {
+    #logo {
+        font-size: 1.3rem;
+        font-family: cursive;
+        color: rgb(255, 118, 21);
+    }
+}
+
+
+@media (max-width: 600px) {
+    #botao{
+        display: block;
+    }
+    #menu{
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        right: 0px;
+        background-color: #f1f1f1;
+        z-index: 1000;   
+        height: 0;
+        transition: .6s;
+        visibility: hidden ;
+        overflow-y: hidden;
+        text-align: center;
+    }
+
+
+#nav.active #menu {
+    height: calc(100vh - 70px);
+    display: block;
+    visibility: visible;
+    overflow-y: auto;
+    
+}
+
+#menu a {
+    padding: 1.5rem 0;
+    margin: 0 1rem;
+    border-bottom: rgba(0, 0, 0, 1);
+}
+
+}
+
+.number input{
+    width: 40%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid #222;
+    padding-left: 115px;
+    margin-left: 35px;
+}
+
+nav h2{
+    font-family: sans-serif;
+    color: rgb(255, 118, 21);
+}
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+.pesq{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    
+}
+.pesq img{
+    width: 35px;
+    position: relative;
+    right: 25px;
+
+    
+}
+main input{
+    width: 90%;
+    height: 50px;
+    position: relative;
+    left: 25px;
+    padding-left: 10px;
+    outline: none;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.587);
+    border: none;
+    border-radius: 2px;
+    font-size: 1.1rem;
+}
+main input::placeholder{
+    font-weight: 500;
+    color: #fff;
+}
+.linhainput{
+    width: 100%;
+    height: 1px;
+    background-color: #f1f1f1;
+    margin-top: 30px;
+}
+
+
+section{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+h3{
+    font-size: 1.6rem;
+    font-family: sans-serif;
+    color: rgb(80, 79, 79);
+    margin-top: 50px;
+    padding-left: 20px;
+}
+section .linha{
+    width: 100%;
+    height: 1px;
+    background-color: #f1f1f1;
+}
+section img{
+    width: 110px;
+    border-radius: 2px;
+    box-shadow: 1px 1px 5px #6f6a6a;
+}
+section p{
+    font-family: sans-serif;
+    font-size: .9rem;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+
+
+
+
+.container-trailer{
+    width: 100%;
+    display: none;
+    place-items: center;
+}
+.traillers{
+    width: 98%;
+    height: auto;
+    background-color: #222;
+    border-radius: 5px;
+    position: relative;
+    bottom: 670px;
+    box-shadow: 1px 1px 10px #333;
+    padding-bottom: 50px;
+
+}
+.traillers .descricao{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    
+}
+.traillers .descricao img{
+    width: 100px;
+    border-radius: 2px;
+    padding-left: 15px;
+    padding-top: 10px;
+    
+}
+.traillers .descricao h4{
+    font-size: 1.8rem;
+    font-family: sans-serif;
+    color: #f1f1f1;
+}
+.traillers .descricao img{}
+
+
+.filmee{
+
+}
+.filmee p{
+    width: 90%;
+    color: #f1f1f1;
+    font-family: sans-serif;
+    padding-left: 15px;
+    margin-top: 20px;
+}
+.traillers button{
+    color: #fff;
+    width: 90%;
+    height: 45px;
+    background-color: rgb(255, 118, 21);
+    font-size: 1.2rem;
+    border-radius: 2px;
+    margin-top: 25px;
+    
+}
+.traillers #oxente{
+    width: 50px;
+    padding-right: 10px;
+}
+
+
+.login{
+  width: 95%;
+  height: 350px;
+  background-color: #fff;
+  margin: auto;
+  border-radius: 1px;
+  margin-top: 50px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.login p{
+  font-size: 2.5rem;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: rgb(255, 118, 21);
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.login input{
+  width: 85%;
+  height: 45px;
+  padding-left: 10px;
+  outline: none;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.587);
+  border: none;
+  border-radius: 2px;
+  font-size: 1.1rem;
+
+}
+.login input::placeholder{
+  font-weight: 500;
+  color: #fff;
+}
+.btn-cadastro{
+  width: 80%;
+  height: 50px;
+  background-color: rgb(255, 118, 21);
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #fff;
+  margin-top: 60px;
+}
+.btn-cadastro:hover{
+  background-color: rgb(235, 108, 17);
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+
+        <header>
+
+
+            <button id="botao">
+                <div class="burguer">
+                <div class="div"></div>
+                <div class="div" id="outro"></div>
+                <div class="div"></div>
+                </div>
+            </button>
+            <nav id="nav">
+
+                <ul id="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Filmes</a></li>
+                    <li><a href="#">Séries</a></li>
+                    <li><a href="#">Sobre</a></li>
+                </ul>
+
+                <h2 onclick="abrirlogin()">TccFlix</h2>
+
+            </nav>
+
+            
+
+
+        </header>
+
+        <div id="login" class="login">
+            <p>Cadastre-se</p>
+            <input id="email noia" type="email" placeholder="E-mail...">
+            <input id="senha" type="password" placeholder="Senha...">
+            <div class="btn-cadastro" onclick="fecharlogin()">CADASTRAR</div>
+        </div>
+
+        <main id="main">
+
+            <div class="pesq">
+                <input id="pesq" type="text" placeholder="Pesquisar...">
+                <img src="https://img.icons8.com/ios-filled/100/FFFFFF/search.png"/>
+            </div>
+            <div class="linhainput"></div>
+
+        </main>
+
+        <h3 id="dest">Destaques</h3>
+        <div class="linha"></div>
+        <div class="container">
+            
+        <section>
+        
+            <div id="filmes" class="filmes">
+                <img onclick="abrirThor()" src="https://image.tmdb.org/t/p/w500/6OEBp0Gqv6DsOgi8diPUslT2kbA.jpg">
+                <p>Thor: Amor e Trov..</p>
+            </div>
+            
+        </section>
+
+        <section>
+            <div id="filmes2" class="filmes">
+                <img onclick="abrirTopGun()" src="https://megaflix.co/wp-content/uploads/2022/08/4aLjHD7sfMzEXin4qa7v6AJYo9R-200x300.jpg">
+                <p>Top Gun: Maverick</p>
+            </div>          
+        </section>
+
+        <section>
+            <div id="filmes3" class="filmes">
+                <img onclick="abrirMinions()" src="https://image.tmdb.org/t/p/w500/tzFAboMUGJKoPQEtlxfxbbYsSWa.jpg">
+                <p>Minions: A origem..</p>
+            </div>          
+        </section>
+    </div>
+
+
+
+
+
+
+    <div class="container" id="filmes">
+            
+        <section>
+        
+            <div id="filmes4" class="filmes">
+                <img onclick="abrirDoutor()" src="https://image.tmdb.org/t/p/w500/hq2igFqb31fDqGotz8ZuUfwKgn8.jpg">
+                <p>Doutor Estranho: Mul..</p>
+            </div>
+            
+        </section>
+
+        <section>
+            <div id="filmes5" class="filmes">
+                <img onclick="abrirBuzz()" src="https://image.tmdb.org/t/p/w500/AmkVjglcPVook8hvHmzjUc5kpht.jpg">
+                <p>Buzz Lightyear: O filme</p>
+            </div>          
+        </section>
+
+        <section>
+            <div id="filmes6" class="filmes">
+                <img onclick="abrirDino()" src="https://image.tmdb.org/t/p/w500/w6Jz1AgjscqBuS8qXBd0wUHz5zC.jpg">
+                <p>Jurassic Word: Domínio</p>
+            </div>          
+        </section>
+    </div>
+
+
+
+
+    <div class="container-trailer" id="FilmeThor">
+        <div class="traillers">
+
+            <div class="descricao">
+                <img src="https://image.tmdb.org/t/p/w500/6OEBp0Gqv6DsOgi8diPUslT2kbA.jpg">
+                <div class="text-descricao">
+                    <h4>Thor: Amor e Trovão</h4>
+                </div>
+                <img id="oxente" onclick="fecharThor()" src="https://img.icons8.com/ios-filled/100/FFFFFF/x.png"/>
+            </div>
+            
+            <div class="filmee">
+                <p>Thor parte em uma jornada de autodescoberta, diferente de tudo que ele já enfrentou. Mas seus esforços são interrompidos por um assassino galáctico conhecido como Gorr, o Carniceiro dos Deuses, que busca a extinção dos deuses. Para combater esta ameaça, Thor pede a ajuda da Rei Valquíria, Korg e da ex-namorada Jane Foster, que, para a surpresa de Thor, inexplicavelmente empunha seu mágico martelo, Mjolnir, como a Poderosa Thor. Juntos, eles embarcam em uma angustiante aventura cósmica para descobrir o mistério da vingança do Carniceiro dos Deuses e detê-lo antes que seja tarde demais.</p>
+            </div>
+            <button>
+                <a href="https://youtu.be/Ly9n2c4oVYc" target="_blank">Assistir filme</a>
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <div class="container-trailer" id="FilmeTopGun">
+        <div class="traillers">
+
+            <div class="descricao">
+                <img src="https://megaflix.co/wp-content/uploads/2022/08/4aLjHD7sfMzEXin4qa7v6AJYo9R-200x300.jpg">
+                <div class="text-descricao">
+                    <h4>Top Gun: Maverick</h4>
+                </div>
+                <img id="oxente" onclick="fecharTopGun()" src="https://img.icons8.com/ios-filled/100/FFFFFF/x.png"/>
+            </div>
+            
+            <div class="filmee">
+                <p>Depois de mais de 30 anos de serviço como um dos principais aviadores da Marinha, Pete "Maverick" Mitchell está de volta, rompendo os limites como um piloto de testes corajoso. No mundo contemporâneo das guerras tecnológicas, Maverick enfrenta drones e prova que o fator humano ainda é essencial.</p>
+            </div>
+            <button>
+                <a href="https://youtu.be/Ly9n2c4oVYc" target="_blank">Assistir filme</a>
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <div class="container-trailer" id="FilmeMinions">
+        <div class="traillers">
+
+            <div class="descricao">
+                <img src="https://image.tmdb.org/t/p/w500/tzFAboMUGJKoPQEtlxfxbbYsSWa.jpg">
+                <div class="text-descricao">
+                    <h4>Minions: A origem de Gru</h4>
+                </div>
+                <img id="oxente" onclick="fecharMinions()" src="https://img.icons8.com/ios-filled/100/FFFFFF/x.png"/>
+            </div>
+            
+            <div class="filmee">
+                <p>A continuação das aventuras dos Minions, sempre em busca de um líder tirânico. Dessa vez, eles ajudam um Gru ainda criança, descobrindo como ser vilão.</p>
+            </div>
+            <button>
+                <a href="https://youtu.be/Ly9n2c4oVYc" target="_blank">Assistir filme</a>
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <div class="container-trailer" id="FilmeDoutor">
+        <div class="traillers">
+
+            <div class="descricao">
+                <img src="https://image.tmdb.org/t/p/w500/hq2igFqb31fDqGotz8ZuUfwKgn8.jpg">
+                <div class="text-descricao">
+                    <h4>Doutor Estranho: Multiverso</h4>
+                </div>
+                <img id="oxente" onclick="fecharDoutor()" src="https://img.icons8.com/ios-filled/100/FFFFFF/x.png"/>
+            </div>
+            
+            <div class="filmee">
+                <p>Doutor Estranho, com a ajuda de aliados místicos antigos e novos, atravessa as perigosas realidades alternativas e alucinantes do Multiverso para enfrentar um novo adversário misterioso.</p>
+            </div>
+            <button>
+                <a href="https://youtu.be/Ly9n2c4oVYc" target="_blank">Assistir filme</a>
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <div class="container-trailer" id="FilmeBuzz">
+        <div class="traillers">
+
+            <div class="descricao">
+                <img src="https://image.tmdb.org/t/p/w500/AmkVjglcPVook8hvHmzjUc5kpht.jpg">
+                <div class="text-descricao">
+                    <h4>Buzz Lightyear: O filme</h4>
+                </div>
+                <img id="oxente" onclick="fecharBuzz()" src="https://img.icons8.com/ios-filled/100/FFFFFF/x.png"/>
+            </div>
+            
+            <div class="filmee">
+                <p>A aventura de ação e ficção científica apresenta a história de origem definitiva de Buzz Lightyear - o herói que inspirou o brinquedo - apresentando o lendário Space Ranger que conquistaria gerações de fãs.</p>
+            </div>
+            <button>
+                <a href="https://youtu.be/Ly9n2c4oVYc" target="_blank">Assistir filme</a>
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <div class="container-trailer" id="FilmeDino">
+        <div class="traillers">
+
+            <div class="descricao">
+                <img src="https://image.tmdb.org/t/p/w500/w6Jz1AgjscqBuS8qXBd0wUHz5zC.jpg">
+                <div class="text-descricao">
+                    <h4>Jurassic Word: Domínio</h4>
+                </div>
+                <img id="oxente" onclick="fecharDino()" src="https://img.icons8.com/ios-filled/100/FFFFFF/x.png"/>
+            </div>
+            
+            <div class="filmee">
+                <p>Quatro anos após a destruição da Ilha Nublar, os dinossauros agora vivem – e caçam – ao lado de humanos em todo o mundo. Esse frágil equilíbrio remodelará o futuro e determinará, de uma vez por todas, se os seres humanos continuarão sendo os principais predadores em um planeta que agora compartilham com as criaturas mais temíveis da história.</p>
+            </div>
+            <button>
+                <a href="https://youtu.be/Ly9n2c4oVYc" target="_blank">Assistir filme</a>
+            </button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+        <script>
+            const botao = document.getElementById("botao");
+
+            function toggleMenu(){
+                const nav = document.getElementById("nav");
+                nav.classList.toggle('active');
+            }
+
+            botao.addEventListener('click', toggleMenu);
+
+
+
+            function abrirlogin(){
+                document.getElementById("login").style.display="flex";
+                document.getElementById("main").style.display="none";
+                document.getElementById("dest").style.display="none";
+                document.getElementById("filmes").style.display="none";
+                document.getElementById("filmes2").style.display="none";
+                document.getElementById("filmes3").style.display="none";
+                document.getElementById("filmes4").style.display="none";
+                document.getElementById("filmes5").style.display="none";
+                document.getElementById("filmes6").style.display="none";
+            }
+            function fecharlogin(){
+                alert("Seus dados foram salvos com sucesso !!!");
+                document.getElementById("login").style.display="none";
+                document.getElementById("main").style.display="flex";
+                document.getElementById("dest").style.display="inline-block";
+                document.getElementById("filmes").style.display="inline-block";
+                document.getElementById("filmes2").style.display="inline-block";
+                document.getElementById("filmes3").style.display="inline-block";
+                document.getElementById("filmes4").style.display="inline-block";
+                document.getElementById("filmes5").style.display="inline-block";
+                document.getElementById("filmes6").style.display="inline-block";
+            }
+
+
+            function abrirDino(){
+                document.getElementById("FilmeDino").style.display="grid";
+            }
+            function fecharDino(){
+                document.getElementById("FilmeDino").style.display="none";
+            }
+
+
+            function abrirBuzz(){
+                document.getElementById("FilmeBuzz").style.display="grid";
+            }
+            function fecharBuzz(){
+                document.getElementById("FilmeBuzz").style.display="none";
+            }
+
+
+            function abrirDoutor(){
+                document.getElementById("FilmeDoutor").style.display="grid";
+            }
+            function fecharDoutor(){
+                document.getElementById("FilmeDoutor").style.display="none";
+            }
+
+
+
+            function abrirThor(){
+                document.getElementById("FilmeThor").style.display="grid";
+            }
+            function fecharThor(){
+                document.getElementById("FilmeThor").style.display="none";
+
+            }
+
+
+            function abrirTopGun(){
+                document.getElementById("FilmeTopGun").style.display="grid";
+            }
+            function fecharTopGun(){
+                document.getElementById("FilmeTopGun").style.display="none";
+            }
+
+            function abrirMinions(){
+                document.getElementById("FilmeMinions").style.display="grid";
+            }
+            function fecharMinions(){
+                document.getElementById("FilmeMinions").style.display="none";
+            }
+
+
+        </script>
+
+
+</body>
+</html>
